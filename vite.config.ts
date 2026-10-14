@@ -9,8 +9,6 @@ export default defineConfig(async ({ mode }) => {
     // @ts-ignore
     const m = await import('./.vite-source-tags.js');
     plugins.push(m.sourceTags());
-  } catch {}
-
   const env = loadEnv(mode, process.cwd(), ['VITE_', 'NEXT_PUBLIC_']);
   const processEnvDefines: Record<string, string> = {};
   for (const [key, value] of Object.entries(env)) {
